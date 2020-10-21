@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     }
 
     private fun showErrorDialog() {
-        alert("Ha ocurrido un error, inténtelo de nuevo.") {
+        alert("An error occurred, please try again.") {
             yesButton { }
         }.show()
     }
