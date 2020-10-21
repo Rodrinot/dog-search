@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.android.retrofitsample"
+        minSdkVersion 26
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext.retrofit_version = '2.3.0'
+ext.cardView_version = '27.1.0'
+ext.support_version = '27.1.0'
+ext.picasso_version = '2.71828'
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    // Picasso: To load Internet images.
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+
+    // Support
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:recyclerview-v7:$support_version"
+
+    // Retrofit: REST request.
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    // GSON: Convert JSon.
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // Anko: To simplify.
+    implementation 'org.jetbrains.anko:anko-common:0.9'
+
+    // Cardview: Android component to create cards.
+    implementation "com.android.support:cardview-v7:$cardView_version"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
